@@ -9,3 +9,5 @@
 4. Ajla Omerović  
 
 ## Opis teme:
+
+Aplikacija kreirana s ciljem lakše organizacije i upravljanja letovima za aviokompanije. Omogućava jednostavniju rezervaciju za putnike.
