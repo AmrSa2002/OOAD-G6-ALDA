@@ -1,4 +1,4 @@
-# OOAD-G6-ALDŽA
+# OOAD-G6-FLYAWAY
 
 
 # Članovi
