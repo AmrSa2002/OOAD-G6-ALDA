@@ -20,6 +20,8 @@ namespace FlyAway.Models
         public DateTime Vrijeme_Polijetanja { get; set; }
         public DateTime Vrijeme_Slijetanja { get; set; }
         public DateTime Datum_Polaska { get; set; }
+       
+        [EnumDataType(typeof(TipLeta))]
         public TipLeta TipLeta { get; set; }
         public Let() { }
     }

@@ -1,0 +1,69 @@
+﻿@model FlyAway.Models.Let
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Let</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="BrojAviona" class="control-label"></label>
+                <input asp-for="BrojAviona" class="form-control" />
+                <span asp-validation-for="BrojAviona" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BrojSlobodnihMjesta" class="control-label"></label>
+                <input asp-for="BrojSlobodnihMjesta" class="form-control" />
+                <span asp-validation-for="BrojSlobodnihMjesta" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Destinacija" class="control-label"></label>
+                <input asp-for="Destinacija" class="form-control" />
+                <span asp-validation-for="Destinacija" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cijena" class="control-label"></label>
+                <input asp-for="Cijena" class="form-control" />
+                <span asp-validation-for="Cijena" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vrijeme_Polijetanja" class="control-label"></label>
+                <input asp-for="Vrijeme_Polijetanja" class="form-control" />
+                <span asp-validation-for="Vrijeme_Polijetanja" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vrijeme_Slijetanja" class="control-label"></label>
+                <input asp-for="Vrijeme_Slijetanja" class="form-control" />
+                <span asp-validation-for="Vrijeme_Slijetanja" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Datum_Polaska" class="control-label"></label>
+                <input asp-for="Datum_Polaska" class="form-control" />
+                <span asp-validation-for="Datum_Polaska" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipLeta" class="control-label"></label>
+                <select asp-for="TipLeta" class="form-control"></select>
+                <span asp-validation-for="TipLeta" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

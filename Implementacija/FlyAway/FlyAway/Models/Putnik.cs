@@ -7,7 +7,6 @@ namespace FlyAway.Models
         public string Email { get; set; }
 
         public string Password { get; set; }
-        public List<Rezervacija> Rezervacija {get; }
         public Putnik() { }
     }
 }

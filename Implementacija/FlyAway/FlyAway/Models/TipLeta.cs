@@ -1,7 +1,12 @@
-﻿namespace FlyAway.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace FlyAway.Models
 {
     public enum TipLeta
     {
-        Redovni, Vandredni
+        [Display(Name = "Redovni")]
+        Redovni,
+        [Display(Name = "Vandredni")]
+        Vandredni
     }
 }

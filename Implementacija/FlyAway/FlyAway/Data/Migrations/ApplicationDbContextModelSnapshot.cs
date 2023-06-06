@@ -417,7 +417,7 @@ namespace FlyAway.Data.Migrations
                         .IsRequired();
 
                     b.HasOne("FlyAway.Models.Putnik", "Putnik")
-                        .WithMany("Rezervacija")
+                        .WithMany()
                         .HasForeignKey("IdPutnika")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -494,11 +494,6 @@ namespace FlyAway.Data.Migrations
                         .HasForeignKey("FlyAway.Models.Putnik", "Id")
                         .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("FlyAway.Models.Putnik", b =>
-                {
-                    b.Navigation("Rezervacija");
                 });
 #pragma warning restore 612, 618
         }
