@@ -7844,11 +7844,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\OOAD-G6-ALDA\\Implementacija\\FlyAway\\FlyAway\\FlyAway.csproj",
+      "projectUniqueName": "C:\\Users\\User\\source\\repos\\FlyAway\\FlyAway\\FlyAway.csproj",
       "projectName": "FlyAway",
-      "projectPath": "C:\\Users\\User\\Documents\\GitHub\\OOAD-G6-ALDA\\Implementacija\\FlyAway\\FlyAway\\FlyAway.csproj",
+      "projectPath": "C:\\Users\\User\\source\\repos\\FlyAway\\FlyAway\\FlyAway.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Documents\\GitHub\\OOAD-G6-ALDA\\Implementacija\\FlyAway\\FlyAway\\obj\\",
+      "outputPath": "C:\\Users\\User\\source\\repos\\FlyAway\\FlyAway\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -23,6 +23,7 @@ namespace FlyAway.Data
         public DbSet<Recenzija> Recenzija { get; set; }
         public DbSet<Rezervacija> Rezervacija { get; set; }
         public DbSet<Korisnici> Korisnici { get; set; }
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Administrator2>().ToTable("Administrator");

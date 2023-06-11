@@ -40,7 +40,7 @@
                 @Html.DisplayFor(modelItem => item.Username)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Slika)
+                    <img src=@item.Slika>
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

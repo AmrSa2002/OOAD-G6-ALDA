@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FlyAway.Data;
 using FlyAway.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FlyAway.Controllers
 {
+    [Authorize]
     public class KorisniciController : Controller
     {
         private readonly ApplicationDbContext _context;

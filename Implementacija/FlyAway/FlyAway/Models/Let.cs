@@ -15,7 +15,7 @@ namespace FlyAway.Models
         public int BrojSlobodnihMjesta { get; set; }
 
         [ForeignKey("Destinacija")]
-        public string Destinacija { get; set; }
+        public int Destinacija { get; set; }
         public double Cijena { get; set; }
         public DateTime Vrijeme_Polijetanja { get; set; }
         public DateTime Vrijeme_Slijetanja { get; set; }

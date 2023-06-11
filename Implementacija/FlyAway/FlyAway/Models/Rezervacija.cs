@@ -8,7 +8,7 @@ namespace FlyAway.Models
         [Key]
         public int Id { get; set; }
 
-        [ForeignKey("Putnik")]
+        [ForeignKey("ApplicationUser")]
         public int IdPutnika { get; set; }
         public Putnik Putnik { get; set; }
 

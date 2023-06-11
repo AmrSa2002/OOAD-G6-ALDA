@@ -116,8 +116,8 @@ namespace FlyAway.Data.Migrations
                     b.Property<DateTime>("Datum_Polaska")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Destinacija")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Destinacija")
+                        .HasColumnType("int");
 
                     b.Property<int>("TipLeta")
                         .HasColumnType("int");
@@ -173,11 +173,14 @@ namespace FlyAway.Data.Migrations
                     b.Property<int>("IdPutnika")
                         .HasColumnType("int");
 
+                    b.Property<int?>("PutnikId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("IdLeta");
 
-                    b.HasIndex("IdPutnika");
+                    b.HasIndex("PutnikId");
 
                     b.ToTable("Rezervacija");
                 });
@@ -245,6 +248,10 @@ namespace FlyAway.Data.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -296,6 +303,8 @@ namespace FlyAway.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -408,6 +417,25 @@ namespace FlyAway.Data.Migrations
                     b.ToTable("Putnik");
                 });
 
+            modelBuilder.Entity("FlyAway.Models.ApplicationUser", b =>
+                {
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+
+                    b.Property<string>("Ime")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Prezime")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Slika")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserNamee")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasDiscriminator().HasValue("ApplicationUser");
+                });
+
             modelBuilder.Entity("FlyAway.Models.Rezervacija", b =>
                 {
                     b.HasOne("FlyAway.Models.Let", "Let")
@@ -418,9 +446,7 @@ namespace FlyAway.Data.Migrations
 
                     b.HasOne("FlyAway.Models.Putnik", "Putnik")
                         .WithMany()
-                        .HasForeignKey("IdPutnika")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PutnikId");
 
                     b.Navigation("Let");
 

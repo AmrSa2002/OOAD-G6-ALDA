@@ -1,0 +1,81 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <h4>Create a new account.</h4>
+            <hr />
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Input.Email"></label>
+                <input asp-for="Input.Email" class="form-control" />
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Password"></label>
+                <input asp-for="Input.Password" class="form-control" />
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.ConfirmPassword"></label>
+                <input asp-for="Input.ConfirmPassword" class="form-control" />
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Ime"></label>
+                <input asp-for="Input.Ime" class="form-control" />
+                <span asp-validation-for="Input.Ime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Prezime"></label>
+                <input asp-for="Input.Prezime" class="form-control" />
+                <span asp-validation-for="Input.Prezime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Slika" class="control-label"></label>
+                <input asp-for="Input.Slika" class="form-control" style="visibility: hidden" />
+                <span asp-validation-for="Input.Slika" class="text-danger"></span>
+            </div>
+            <div style="padding: 1rem; display: grid; grid-template-columns: 50% 50%">
+                <div id="results">Slika će se prikazati ovdje...</div>
+                <div style="margin-left: 20rem">
+                    <div id="my_camera"></div>
+                    <script type="text/javascript" src="~/js/webcam.min.js"></script>
+                    <script>
+                        Webcam.set({
+                            width: 320,
+                            height: 240,
+                            image_format: 'jpeg',
+                            jpeg_quality: 90
+                        });
+                        Webcam.attach('#my_camera');
+                    </script>
+                    <script>
+                        function take_snapshot() {
+                            Webcam.snap(function (data_uri) {
+                                document.getElementById('results').innerHTML = '<img src = "' + data_uri + '" /> ';
+                                document.getElementById('Input.Slika').value = data_uri;
+                            });
+                        }
+                    </script>
+                    <input type=button id="takeshot" class="btn btn-primary"
+                           value="Uslikaj" onClick="take_snapshot()">
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Register</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
